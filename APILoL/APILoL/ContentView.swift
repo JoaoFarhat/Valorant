@@ -7,141 +7,121 @@
 
 import SwiftUI
 
+struct SideMenuView: View {
+    
+    var body: some View{
+            VStack{
+                Text("Valorant")
+                    .font(.title)
+                    .foregroundColor(.white)
+                    .bold()
+                Divider()
+                    .frame(width: 200 ,height: 2)
+                    .background(Color.white)
+                    .padding(.horizontal, 16)
+                    .blur(radius: 0.5)
+                NavigationLink(destination: MenuAgents()){
+                    Text("Agents")
+                    
+                }
+                    .foregroundColor(.white)
+                Spacer()
+            }
+            .padding(32)
+            .background(.red)
+            .edgesIgnoringSafeArea(.bottom)
+        }
+    }
+
 struct ContentView: View {
     
+    @State private var ShowMenu: Bool = false
     @StateObject var viewModel = ViewModel()
-    @State var agentSelect : Agents =  Agents(uuid: nil, displayName: "Selecione", description: nil, developerName: nil, characterTags: nil, displayIcon: "", displayIconSmall: "", bustPortrait: "", fullPortrait: "", fullPortraitV2: "", killfeedPortrait: "", background: "", backgroundGradientColors: [nil], assetPath: nil, isFullPortraitRightFacing: true, isPlayableCharacter: true, isAvailableForTest: true, isBaseContent: true, role: nil, abilities: nil)
+    @State var agentSelect : Agents? =  Agents(uuid: nil, displayName: "Chamber", description: "Bem-vestido e armado até os dentes, o criador de armas francês Chamber coloca os inimigos para correr com precisão mortal. Use e abuse do arsenal personalizado dele para segurar posições e abater inimigos de longe, criando a defesa perfeita para qualquer plano.", developerName: nil, characterTags: nil, displayIcon: "", displayIconSmall: "", bustPortrait: "", fullPortrait: "https://media.valorant-api.com/agents/22697a3d-45bf-8dd7-4fec-84a9e28c69d7/fullportrait.png", fullPortraitV2: "", killfeedPortrait: "", background: "", backgroundGradientColors: [nil], assetPath: nil, isFullPortraitRightFacing: true, isPlayableCharacter: true, isAvailableForTest: true, isBaseContent: true, role: nil, abilities: nil)
     
-    @State var agentSelected : String?
-    @State var isLinkActive = false
     
-    var body: some View {
-        NavigationView{
-            VStack {
-                
-                ZStack{
-                    AsyncImage(url: URL(string: "https://analisadaily.com/imagesfile/202211/20221129-192005_valorant-akan-segera-hadir-di-android.jpeg")){ image in
-                        image.resizable()
-                    } placeholder: {
-                        ProgressView()
-                    }
-                    .frame(width: 400, height: 350)
-                    Text("AGENTES")
-                        .bold()
-                        .font(.title)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.bottom, 200.00)
-                        .padding(.leading)
-                        .foregroundColor(.white)
-                    
-                }
-                VStack{
-                    Spacer()
-                    Text("// CONHEÇA A EQUIPE")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.vertical, 10)
-                        .padding(.leading, 25)
-                        .bold()
-                    Text("Encontre mais formas de plantar a Spike e enfrentar seus inimigos com lutadores, estrategistas e caçadores de todos os tipos")
-                        .foregroundColor(.gray)
-                    Spacer()
-//                        .navigationBarTitleDisplayMode(.inline)
-////                        .toolbar {
-////                          ToolbarItem {
-//                              Menu(agentSelect.displayName!) {
-//                                ForEach(viewModel.chars, id : \.uuid) { agents in
-//                                  Button(agents.displayName!) {
-//                                  agentSelect = agents
-////                                      NavigationLink(destination: Agent(agentSelect: agentSelect), isActive: $isLinkActive) {
-////                                          EmptyView()
-////                                      }
-////                                          .hidden()
-//                                }
-//                              }
-//                            }
-//                          }
-//                        }
-                    Picker("Please choose a Agent", selection: $agentSelected) {
-                        Text("Selecione").tag("")
-                        ForEach(viewModel.chars, id: \.uuid){ a in
-                            Text(a.displayName!).tag(a)
+    var body: some View{
+        NavigationStack {
+            ZStack{
+                Color.white.ignoresSafeArea(.all ,edges: .all)
+            ScrollView{
+                    VStack{
+                        Image("Home")
+                            .resizable()
+                            .frame(width: 350, height: 200)
+                            .padding(.bottom)
+                        Divider()
+                            .frame(width: 300, height: 2)
+                            .overlay(.black)
+                        Text("SOBRE O VALORANT")
+                            .bold()
+                            Text("Valorant é um jogo de tiro em primeira pessoa online desenvolvido pela Riot Games. O jogo coloca duas equipes de cinco jogadores em um mapa com o objetivo de plantar ou desarmar uma bomba ou proteger/reforçar um local específico.")
+                                .padding()
+                                .frame(width: 400)
+                                .font(.callout)
+                                .foregroundColor(Color("grayDiff"))
+                        VStack{
+                            Text("AGENTES")
+                                .bold()
+                            Divider()
+                                .frame(width: 90, height: 2)
+                                .overlay(.black)
                         }
-
-                    }
-                    if(agentSelected != nil){
-                        Button{
-                            if let agentSelect = viewModel.chars.first(where:{
-                                $0.uuid == agentSelected!})
-                            {
-                                self.agentSelect = agentSelect
-                                print(agentSelect)
-                                
-                                self.isLinkActive = true
+                        .frame(width: 380, alignment: .leading)
+                        HStack{
+                                Text("Mais do que armas e munição, VALORANT inclui agentes com habilidades adaptativas, rápidas e letais, que criam oportunidades para você exibir sua mecânica de tiro.")
+                                    .frame(width: 190, height: 175)
+                                    .foregroundColor(Color("grayDiff"))
+                            VStack{
+                                AsyncImage(url: URL(string: "https://media.wired.com/photos/5ea0840cb0490300086261e3/master/w_2240,c_limit/Cul-Reveal_ReactorA_VALORANT.jpg")){ image in
+                                    image.resizable()
+                                        .frame(width : 180, height: 150)
+                                } placeholder: {
+                                    ProgressView()
+                                }
+                                NavigationLink(destination: MenuAgents(), label: {
+                                    Text("Vá para agentes -->")
+                                    .bold()
+                                    .foregroundColor(.red)
+                                })
                             }
-                        } label: {
-                            Text("Acessar")
                         }
-                        .font(.title3)
-                        .bold()
-                        .foregroundColor(.white)
-                        .padding(.all, 10)
-                        .padding(.horizontal, 30)
-                        .background(.red)
-                        .cornerRadius(20)
-                    }else{
-                        Button{
-                            
-                        } label: {
-                            Text("Acessar")
-                        }
-                        .font(.title3)
-                        .bold()
-                        .foregroundColor(.white)
-                        .padding(.all, 10)
-                        .padding(.horizontal, 30)
-                        .background(.gray)
-                        .cornerRadius(20)
+                        
                     }
-                    Spacer()
                 }
-                .padding(.leading, 7.0)
-                Spacer()
-                VStack{
-                    Link("Baixe o Jogo", destination: URL(string: "https://playvalorant.com/pt-br/agents/")!)
-                        .padding()
-                    Link("Torneios Independentes", destination: URL(string: "https://assets.contentstack.io/v3/assets/blt0eb2a2986b796d29/blt96bcb1f792b51a6b/6116afd61da1da13cddbee74/VALORANT_Community_Competition_Guidelines_por-BR_v1.2.pdf")!)
-                    
-                    Link("Baixe o Aplicativo de Celualar Riot Games", destination: URL(string: "https://play.google.com/store/apps/details?id=com.riotgames.mobile.leagueconnect")!)
-                        .padding()
-                    
+                    GeometryReader { _ in
+                        HStack{
+                            Spacer()
+                            SideMenuView()
+                                .offset(x: ShowMenu ? 0 : UIScreen.main.bounds.width)
+                                .animation(.easeInOut(duration: 0.25), value: ShowMenu)
+                        }
+                    }
+                    .background(Color.black.opacity(ShowMenu ? 0.5 : 0))
                 }
-                .frame(maxWidth: .infinity)
-                .background(Color("grayDiff"))
-                .foregroundColor(.white)
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    Button{
+                        self.ShowMenu.toggle()
+                        print("Show menu")
+                    } label: {
+                        if ShowMenu {
+                            Image(systemName: "xmark")
+                                .font(.title)
+                                .foregroundColor(.white)
+                        } else {
+                            Image(systemName: "line.horizontal.3")
+                                .font(.title)
+                                .foregroundColor(.black)
+                        }
+                    }
+                }
             }
-            .onAppear(){
-                viewModel.fetch()
-                // .padding()
-                
-            }
-            .background(
-                NavigationLink(destination: Agent(agentSelect: agentSelect), isActive: $isLinkActive) {
-                    EmptyView()
-                }
-                    .hidden()
-            )
-            .ignoresSafeArea(.all)
         }
-        
     }
-}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
-
-//                    if(index.role?.displayName != nil){
-//                        Text(index.role!.displayName!)
-//                    }

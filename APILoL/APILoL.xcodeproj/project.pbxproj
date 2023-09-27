@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA0D37A92ABC65A600A1149A /* MenuAgents.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0D37A82ABC65A600A1149A /* MenuAgents.swift */; };
 		FA16345B2AB08CD000B843BF /* APILoLApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA16345A2AB08CD000B843BF /* APILoLApp.swift */; };
 		FA16345D2AB08CD000B843BF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA16345C2AB08CD000B843BF /* ContentView.swift */; };
 		FA16345F2AB08CD200B843BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA16345E2AB08CD200B843BF /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA0D37A82ABC65A600A1149A /* MenuAgents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuAgents.swift; sourceTree = "<group>"; };
 		FA1634572AB08CD000B843BF /* APILoL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APILoL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA16345A2AB08CD000B843BF /* APILoLApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILoLApp.swift; sourceTree = "<group>"; };
 		FA16345C2AB08CD000B843BF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				FA1634602AB08CD200B843BF /* Preview Content */,
 				FA1634682AB08D0500B843BF /* ViewModel.swift */,
 				FAF1C1E62AB33601001CA5B0 /* Agent.swift */,
+				FA0D37A82ABC65A600A1149A /* MenuAgents.swift */,
 			);
 			path = APILoL;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 				FAF1C1E72AB33601001CA5B0 /* Agent.swift in Sources */,
 				FA1634692AB08D0500B843BF /* ViewModel.swift in Sources */,
 				FA16345B2AB08CD000B843BF /* APILoLApp.swift in Sources */,
+				FA0D37A92ABC65A600A1149A /* MenuAgents.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

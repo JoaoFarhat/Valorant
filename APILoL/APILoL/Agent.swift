@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct Agent: View {
-    @State var agentSelect : Agents?
+    @Binding var agentSelect : Agents!
     @State var habilitName : String = ""
     @State var habilitDescription : String = ""
     
@@ -26,7 +26,7 @@ struct Agent: View {
                     } placeholder: {
                         ProgressView()
                     }
-                    HStack{
+                    ZStack{
                         AsyncImage(url: URL(string: agentSelect!.fullPortrait!)){ image in
                             image.resizable()
                         } placeholder: {
@@ -152,6 +152,6 @@ struct Agent: View {
 
 struct Agent_Previews: PreviewProvider {
     static var previews: some View {
-        Agent(agentSelect:Agents(uuid: nil, displayName: "Gekko", description: "Gekko the Angeleno leads a tight-knit crew of calamitous creatures. His buddies bound forward, scattering enemies out of the way, with Gekko chasing them down to regroup and go again.", developerName: nil, characterTags: nil, displayIcon: "", displayIconSmall: "", bustPortrait: "", fullPortrait: "https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/fullportrait.png", fullPortraitV2: "", killfeedPortrait: "", background: "", backgroundGradientColors: [nil], assetPath: nil, isFullPortraitRightFacing: true, isPlayableCharacter: true, isAvailableForTest: true, isBaseContent: true, role: Role(uuid: nil, displayName: "Iniciador", description: nil, displayIcon: "https://media.valorant-api.com/agents/roles/1b47567f-8f7b-444b-aae3-b0c634622d10/displayicon.png"), abilities: [Abilities(slot: "habilidade1", displayName: "Wingman", description: "EQUIPE Wingman. DISPARE para enviá-lo para encontrar inimigos. Wingman lança uma forte explosão na direção do primeiro inimigo que vê. Use o DISPARO ALTERNATIVO na direção de um ponto ou Spike plantada para que Wingman plante ou desarme a Spike. Para plantar, Gekko deve estar com a Spike no inventário. Quando Wingman expira, ele se transforma em um glóbulo inativo. INTERAJA para recuperar o glóbulo e ganhar outra carga de Wingman após um curto período.", displayIcon: "https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/abilities/ability1/displayicon.png"), Abilities(slot: "Habilidade2", displayName: "Dizzy", description: "EQUIPE Dizzy. DISPARE para enviá-la voando pelo ar. Dizzy avança e solta explosões de plasma nos inimigos em sua linha de visão. Os inimigos atingidos pelo plasma ficam cegos. Ao expirar, Dizzy se transforma em um glóbulo inativo. INTERAJA para recuperar o glóbulo e ganhar outra carga de Dizzy após um curto período.", displayIcon: "https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/abilities/ability2/displayicon.png")]))
+        Agent(agentSelect:.constant(Agents(uuid: nil, displayName: "Gekko", description: "Gekko the Angeleno leads a tight-knit crew of calamitous creatures. His buddies bound forward, scattering enemies out of the way, with Gekko chasing them down to regroup and go again.", developerName: nil, characterTags: nil, displayIcon: "", displayIconSmall: "", bustPortrait: "", fullPortrait: "https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/fullportrait.png", fullPortraitV2: "", killfeedPortrait: "", background: "https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/background.png", backgroundGradientColors: [nil], assetPath: nil, isFullPortraitRightFacing: true, isPlayableCharacter: true, isAvailableForTest: true, isBaseContent: true, role: Role(uuid: nil, displayName: "Iniciador", description: nil, displayIcon: "https://media.valorant-api.com/agents/roles/1b47567f-8f7b-444b-aae3-b0c634622d10/displayicon.png"), abilities: [Abilities(slot: "habilidade1", displayName: "Wingman", description: "EQUIPE Wingman. DISPARE para enviá-lo para encontrar inimigos. Wingman lança uma forte explosão na direção do primeiro inimigo que vê. Use o DISPARO ALTERNATIVO na direção de um ponto ou Spike plantada para que Wingman plante ou desarme a Spike. Para plantar, Gekko deve estar com a Spike no inventário. Quando Wingman expira, ele se transforma em um glóbulo inativo. INTERAJA para recuperar o glóbulo e ganhar outra carga de Wingman após um curto período.", displayIcon: "https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/abilities/ability1/displayicon.png"), Abilities(slot: "Habilidade2", displayName: "Dizzy", description: "EQUIPE Dizzy. DISPARE para enviá-la voando pelo ar. Dizzy avança e solta explosões de plasma nos inimigos em sua linha de visão. Os inimigos atingidos pelo plasma ficam cegos. Ao expirar, Dizzy se transforma em um glóbulo inativo. INTERAJA para recuperar o glóbulo e ganhar outra carga de Dizzy após um curto período.", displayIcon: "https://media.valorant-api.com/agents/e370fa57-4757-3604-3648-499e1f642d3f/abilities/ability2/displayicon.png")])))
     }
 }
