@@ -37,8 +37,6 @@ struct ContentView: View {
     
     @State private var ShowMenu: Bool = false
     @StateObject var viewModel = ViewModel()
-    @State var agentSelect : Agents? =  Agents(uuid: nil, displayName: "Chamber", description: "Bem-vestido e armado até os dentes, o criador de armas francês Chamber coloca os inimigos para correr com precisão mortal. Use e abuse do arsenal personalizado dele para segurar posições e abater inimigos de longe, criando a defesa perfeita para qualquer plano.", developerName: nil, characterTags: nil, displayIcon: "", displayIconSmall: "", bustPortrait: "", fullPortrait: "https://media.valorant-api.com/agents/22697a3d-45bf-8dd7-4fec-84a9e28c69d7/fullportrait.png", fullPortraitV2: "", killfeedPortrait: "", background: "", backgroundGradientColors: [nil], assetPath: nil, isFullPortraitRightFacing: true, isPlayableCharacter: true, isAvailableForTest: true, isBaseContent: true, role: nil, abilities: nil)
-    
     
     var body: some View{
         NavigationStack {
